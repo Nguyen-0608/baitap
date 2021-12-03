@@ -2,7 +2,7 @@
 n=int(input("Nhập vào số lượng sinh viên:"))
 #Danh sách các môn học
 dscacmon=["TTHCM","GTN","VHH","QHQT","TDLT","TCC","LLNN","KTVM","TA","ĐRL"]
-sotinchi=[  "2",   "2",  "2",  "2",    "3",   "3",  "3",  "3",   "5", "0"]
+sotinchi=[  2,     2,     2,    2,     3,     3,    3,     3,    5,    0]
 #Hàm nhập điểm cho các bạn sv
 def nhapdiem(dsmon):
     ds=[]
@@ -12,12 +12,29 @@ def nhapdiem(dsmon):
           print("Nhập môn" +dsmon[i])
           diem=float(input())
           ds.append(diem)
+    dtb=trungbinh(diem)
     return(ds)
 ds=nhapdiem(dscacmon)
+
 #Tổng điểm các môn
-tong=((ds[0]+ds[1]+ds[2]+ds[3])*2) + ((ds[4]+ds[5]+ds[6]+ds[7])*3) + ds[8]*5 + ds[9]*0.2
+def tongdiem(ds,tinchi):
+    d1 = ds[0] * tinchi[0]
+    d2 = ds[1] * tinchi[1]
+    d3 = ds[2] * tinchi[2]
+    d4 = ds[3] * tinchi[3]
+    d5 = ds[4] * tinchi[4]
+    d6 = ds[5] * tinchi[5]
+    d7 = ds[6] * tinchi[6]
+    d8 = ds[7] * tinchi[7]
+    d9 = ds[8] * tinchi[8]
+    d10 = ds[9]* tinchi[9]
+    tong=d1+d2+d3+d4+d5+d6+d7+d8+d9+d10
+    return(tong)
+diem=float(tongdiem(ds,sotinchi))
 #Điểm trung bình
-dtb=tong/25
-print(dtb)
+def trungbinh(tong):
+    dtb=tong/25
+    return dtb
+
 
 
